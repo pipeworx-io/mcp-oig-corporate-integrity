@@ -1,0 +1,32 @@
+{
+  "name": "@pipeworx/mcp-oig-corporate-integrity",
+  "version": "0.1.0",
+  "description": "HHS-OIG Corporate Integrity Agreements — does this healthcare company have",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "bin": {
+    "mcp-oig-corporate-integrity": "bin/cli.js"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "oig-corporate-integrity"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-oig-corporate-integrity.git"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-d4d31612edd713e7c84531a36e2f73937db82dd54c2194543effb44824e951dd",
+    "sourceCommit": "29efecb1e77577b1ce49e14f4fd7bbaee3e63885"
+  }
+}
