@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-oig-corporate-integrity",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "HHS-OIG Corporate Integrity Agreements — does this healthcare company have",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-b232e8b0b77278cb851f2566729240f612f5c371c0a52bf8dcd514a360ede077",
-    "sourceCommit": "051ee2039fc96224cb5b7358fd69d525bced13a6"
+    "sourceHash": "v1-823db3f75eafa61de86b4a93d758f375aaa53382155fb83113ebc6eb7f198eac",
+    "sourceCommit": "0ce6905893fe8da0d285be2f05754a4200d67371"
   }
 }
