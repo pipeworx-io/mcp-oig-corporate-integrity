@@ -11,7 +11,7 @@ import * as bakedIndexModule from './oig-cia-index-data.js';
 const bakedIndex = Object.fromEntries(Object.entries(bakedIndexModule));
 
 const server = new Server(
-  { name: '@pipeworx/mcp-oig-corporate-integrity', version: '0.1.5' },
+  { name: '@pipeworx/mcp-oig-corporate-integrity', version: '0.1.6' },
   { capabilities: { tools: {} } },
 );
 

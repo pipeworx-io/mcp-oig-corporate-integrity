@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/oig-corporate-integrity",
   "title": "Oig Corporate Integrity",
   "description": "HHS-OIG Corporate Integrity Agreements — does this healthcare company have a CIA, since when, what…",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "websiteUrl": "https://pipeworx.io/packs/oig-corporate-integrity",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-oig-corporate-integrity",
