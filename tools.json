@@ -1,0 +1,60 @@
+[
+  {
+    "name": "oig_cia_check",
+    "description": "Does this healthcare company or individual have an HHS-OIG Corporate Integrity Agreement (CIA)? Checks a name against the current HHS-OIG CIA roster — companies and individuals OIG agreed not to exclude from Medicare/Medicaid in exchange for binding compliance obligations, as part of a False Claims Act or other settlement. Different from an EXCLUSION (see the leie / ny-omig-exclusions packs): a CIA entity is still participating, under obligations. An exact name match is the strongest signal; a normalized-name or partial/token match is returned as a labelled CANDIDATE, since CIA entity names are often compound (a company plus named co-signers) — e.g. searching \"SNAP Diagnostics\" finds \"SNAP Diagnostics, LLC and Gil Raviv\" as a candidate. Returns, for the best match: status (Effective/Suspended/Closed/Refused), effective date, term/duration, settlement amount, and the agreement PDF URL (fetched live from the entity's own detail page — not stale). Returns found:false with the list's as-of date and total agreement count when no match exists. Sourced from HHS-OIG, keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Company or individual name to check, e.g. \"SNAP Diagnostics\" or \"Alliance Parent, Inc.\". Any word order; partial names are matched as candidates."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum candidates to return (default 5, max 20). Only the top/best candidate is enriched with live detail-page data."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "oig_cia_obligations",
+    "description": "What obligations does this entity's Corporate Integrity Agreement actually impose — Board Resolution, Independent Review Organization (IRO) reviews, Compliance Officer/Committee, Annual/Implementation reporting, a disclosure program, excluded-persons screening? Resolves the entity (same matching as oig_cia_check) or takes a direct document_url (from oig_cia_check's agreement_url field), fetches the agreement PDF LIVE from oig.hhs.gov, extracts its text, and reports which of those obligation categories appear in the text with a short excerpt for each. Not every CIA includes every category — a sole-individual CIA typically has no Board Resolution clause, and some older closed agreements have no PDF posted at all (reported as found:false, not an error). Sourced from HHS-OIG, keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Company or individual name to look up (resolved the same way as oig_cia_check). Omit if passing document_url directly."
+        },
+        "document_url": {
+          "type": "string",
+          "description": "A specific agreement PDF URL under oig.hhs.gov/documents/cias/..., e.g. from a prior oig_cia_check call's agreement_url field. Overrides name-based lookup when given."
+        }
+      }
+    }
+  },
+  {
+    "name": "oig_cia_list",
+    "description": "Browse the current HHS-OIG Corporate Integrity Agreement roster by status — e.g. list every currently Suspended or Refused-by-Entity agreement. Reads the baked CIA list (refreshed periodically; data_as_of says when) rather than live detail pages, so it is fast but does not include effective dates/terms/documents — call oig_cia_check for those on a specific entity. Sourced from HHS-OIG, keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter to one status: Effective, Suspended, Closed, or Refused. Omit to list all."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max rows to return (default 25, max 100)."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Rows to skip, for paging (default 0)."
+        }
+      }
+    }
+  }
+]
