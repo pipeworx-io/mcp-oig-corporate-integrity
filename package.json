@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-oig-corporate-integrity",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "HHS-OIG Corporate Integrity Agreements — does this healthcare company have a CIA, since when, what obligations, and what status? Fleet #2789.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "oig-corporate-integrity",
     "gatewaySlug": "oig-corporate-integrity",
-    "sourceHash": "v1-cd07e01529df4cf909f2db3fc62be482b04a780df1651e3fa0a883dcbf4e0643",
-    "sourceCommit": "b2c4383545bb35171d0ada2beb1c9c7168ea175e"
+    "sourceHash": "v1-2aa5864c9d7ced31db470298ec99f2e8e68e62f5d0bb8e9cff150a7f367f7ddb",
+    "sourceCommit": "bed7faa04e7276899b5e3870ef11c98625371f2b"
   }
 }
